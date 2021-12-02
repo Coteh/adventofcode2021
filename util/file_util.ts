@@ -2,7 +2,7 @@ const fs = require("fs");
 
 type TransformFunc<T> = (buffer: Buffer) => T;
 
-export async function processDataFromStdin<T>(transformFunc: TransformFunc<T>): Promise<T> {
+export function processDataFromStdin<T>(transformFunc: TransformFunc<T>): T {
     if (!transformFunc) {
         throw new Error("Transform func must be provided");
     }
@@ -11,4 +11,12 @@ export async function processDataFromStdin<T>(transformFunc: TransformFunc<T>): 
 
 export function toNumberArray(buffer: Buffer): number[] {
     return buffer.toString().trimEnd().split("\n").map(item => parseInt(item));
+}
+
+export function toParsedBasicCommands(buffer: Buffer): [string, number][] {
+    return buffer.toString().trimEnd().split("\n").map(item => {
+        const split = item.split(" ");
+
+        return [split[0], parseInt(split[1])];
+    });
 }

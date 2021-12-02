@@ -10,9 +10,6 @@ const getSlidingWindows = (vals: number[]) => vals.reduce((acc, val, i) => {
     return i >= SLIDING_WINDOW_LENGTH - 1 ? [...acc, val + vals[i - 1] + vals[i - 2]] : acc;
 }, new Array<number>());
 
-processDataFromStdin(toNumberArray)
-    .then((depths) => {
-        console.log(`Part 1: ${getNumIncreases(depths)}`);
-        console.log(`Part 2: ${getNumIncreases(getSlidingWindows(depths))}`);
-    })
-    .catch(err => console.error(err));
+const depths = processDataFromStdin(toNumberArray);
+console.log(`Part 1: ${getNumIncreases(depths)}`);
+console.log(`Part 2: ${getNumIncreases(getSlidingWindows(depths))}`);
