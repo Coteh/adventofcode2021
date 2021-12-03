@@ -11,5 +11,5 @@ const getSlidingWindows = (vals: number[]) => vals.reduce((acc, val, i) => {
 }, new Array<number>());
 
 const depths = processDataFromStdin(toNumberArray);
-console.log(`Part 1: ${getNumIncreases(depths)}`);
-console.log(`Part 2: ${getNumIncreases(getSlidingWindows(depths))}`);
+console.log(getNumIncreases(depths));
+console.log(getNumIncreases(getSlidingWindows(depths)));

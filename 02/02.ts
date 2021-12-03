@@ -33,5 +33,5 @@ const calculateNewPlannedCourse = (commands: [string, number][]) => {
 }
 
 const commands = processDataFromStdin(toParsedBasicCommands);
-console.log(`Part 1: ${calculatePlannedCourse(commands)}`);
-console.log(`Part 2: ${calculateNewPlannedCourse(commands)}`);
+console.log(calculatePlannedCourse(commands));
+console.log(calculateNewPlannedCourse(commands));
