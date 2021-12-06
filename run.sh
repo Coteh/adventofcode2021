@@ -8,7 +8,7 @@ fi
 INPUT_FILENAME="input.txt"
 
 if [ "$2" == "test" ]; then
-    INPUT_FILENAME="input_test.txt"
+    INPUT_FILENAME="input_test$3.txt"
 fi
 
 if [ ! -f "$1/$INPUT_FILENAME" ]; then
