@@ -1,13 +1,13 @@
 #!/bin/sh
 
-if [ "$#" == 0 ]; then
+if [ "$#" = 0 ]; then
     >&2 echo "usage: ./run.sh <day> [|test]"
     exit 1
 fi
 
 INPUT_FILENAME="input"
 
-if [ "$2" == "test" ]; then
+if [ "$2" = "test" ]; then
     INPUT_FILENAME="input_test$3"
 fi
 
