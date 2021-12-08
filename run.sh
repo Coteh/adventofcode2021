@@ -5,10 +5,10 @@ if [ "$#" == 0 ]; then
     exit 1
 fi
 
-INPUT_FILENAME="input.txt"
+INPUT_FILENAME="input"
 
 if [ "$2" == "test" ]; then
-    INPUT_FILENAME="input_test$3.txt"
+    INPUT_FILENAME="input_test$3"
 fi
 
 if [ ! -f "$1/$INPUT_FILENAME" ]; then
