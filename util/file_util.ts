@@ -23,3 +23,7 @@ export function toParsedBasicCommands(buffer: Buffer): [string, number][] {
 export function toStringArray(buffer: Buffer): string[] {
     return buffer.toString().trimEnd().split("\n");
 };
+
+export function toNumberGrid(buffer: Buffer): number[][] {
+    return toStringArray(buffer).map(line => line.split("").map(val => parseInt(val)));
+};
