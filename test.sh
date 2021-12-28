@@ -11,14 +11,16 @@ for i in `seq 1 $max`; do
             >&2 echo "Day $val test file failed"
             exit 1
         fi
-        if [ -f "$val/expected_test2" ]; then
-            echo "Testing Day $val test 2"
-            ./run.sh "$val" test 2 | diff "$val/expected_test2" -
-            if [ "$?" != 0 ]; then
-                >&2 echo "Day $val test file 2 failed"
-                exit 1
+        for t in `seq 1 5`; do
+            if [ -f "$val/expected_test$t" ]; then
+                echo "Testing Day $val test $t"
+                ./run.sh "$val" test $t | diff "$val/expected_test$t" -
+                if [ "$?" != 0 ]; then
+                    >&2 echo "Day $val test file $t failed"
+                    exit 1
+                fi
             fi
-        fi
+        done
         echo "Testing Day $val real"
         ./run.sh "$val" | diff "$val/expected" -
         if [ "$?" != 0 ]; then
