@@ -19,3 +19,14 @@ There were two rules each state update:
 This solution not only solves the memory problem, but also produces a relatively fast result.
 
 Another note: This solution would not work with 32 bit integers, but since Node.js [uses 64-bit floating point](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#number_type) with a max value of 2<sup>53</sup> - 1, this solution is sufficient. If the counts were larger, I would need to look into something else, such as BigInt, [which has no size limit](https://tc39.es/ecma262/#sec-ecmascript-language-types-bigint-type).
+
+### Day 14
+I initially started Day 14 with a linear approach, storing all polymer letters. I realized by part 2 that this solution would not hold up at all for large polymers. The polymer grows exponentially each step, so I needed to look into a way to get the memory usage down to something more manageable.
+
+Since the problem statement doesn't explicitly state that the order of the polymer matters (just the letter counts matter), I realized that I can store the counts of each pair into something like a map data structure. Because the order is no longer maintained, this makes it a bit harder to verify that the algorithm is correct, but I should be good as long as I can at least verify manually that the letters produced is correct for the first two steps, then check the counts after the 10th step as well.
+
+I also need to make sure, since order is no longer maintained, duplicate letters aren't counted (nor are there any letters not accounted for) when I get the most common and least common elements.
+
+I observed after counting each occurrence of each letter in each pair (this includes duplicates), letters in the middle of the polymer have an even amount, and letters at the start and end of the polymer have an odd amount. This is because the letters at the start and end of the polymer are only counted once, while all letters in the middle of the polymer are counted twice.
+
+Using this realization, I determined that to find the unique count of letters in the polymer, I simply divide the current count (with the duplicates) by 2 if it's even, and if it's odd, add 1 to the count then divide by 2.
