@@ -22,6 +22,19 @@ This solution not only solves the memory problem, but also produces a relatively
 
 Another note: This solution would not work with 32 bit integers, but since Node.js [uses 64-bit floating point](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#number_type) with a max value of 2<sup>53</sup> - 1, this solution is sufficient. If the counts were larger, I would need to look into something else, such as BigInt, [which has no size limit](https://tc39.es/ecma262/#sec-ecmascript-language-types-bigint-type).
 
+### Day 08
+I had a rough go at this one. Part 1 was straightforward—I counted all the outputs with unique lengths. However, for Part 2, I wasn’t sure how to leverage this information to determine the correct configuration.
+
+Looking back on this in 2024, I think I might have missed an opportunity to use the unique length strings in the signal patterns as a starting point for determining the permutation that satisfies all of them. For example, since the digits 1, 4, 7, and 8 have unique segment counts, their patterns could potentially provide a foothold to deduce other digits. (I haven’t rechecked the problem, so I’m not sure if this is right, but it feels like I might’ve been onto something here.)
+
+At the time, I noticed something interesting: in the first example, the signal patterns for 7, 1, and 4 seemed to match their corresponding segment positions exactly if you wrote them as "deafgbc." For instance, 7 ("dab") matched positions 0, 2, and 5, which lined up perfectly with the segments for digit 7. I wasn’t sure if that was just a coincidence, though.
+
+What I ended up doing instead was generating all permutations of "abcdefg" (representing the seven-segment display) and brute-forcing which permutation fit the signal patterns for each row. It worked, but it felt like a clunky solution.
+
+Hopefully, this explanation makes sense! It’s interesting to reflect on this and wonder if there was a cleaner path forward I just didn’t see at the time.
+
+(I could come back and take another swing at it, but for now, putting this note up.)
+
 ### Day 14
 I initially started Day 14 with a linear approach, storing all polymer letters. I realized by part 2 that this solution would not hold up at all for large polymers. The polymer grows exponentially each step, so I needed to look into a way to get the memory usage down to something more manageable.
 
