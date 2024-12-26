@@ -1,4 +1,6 @@
-# adventofcode 2021
+# adventofcode2021
+
+[![Test AoC 2021](https://github.com/Coteh/adventofcode2021/actions/workflows/run_aoc_test.yml/badge.svg)](https://github.com/Coteh/adventofcode2021/actions/workflows/run_aoc_test.yml)
 
 These are my solutions for [Advent of Code (AoC) 2021](https://adventofcode.com/2021).
 
