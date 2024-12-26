@@ -4,7 +4,75 @@
 
 These are my solutions for [Advent of Code (AoC) 2021](https://adventofcode.com/2021).
 
+This year, I wanted to pick something familiar and focus on the challenges themselves, so I picked TypeScript.
+
 The solutions in this repo contain **spoilers**, so proceed at your own risk.
+
+## Instructions
+
+To run, use the `run.sh` script provided in the repo, which launches any of the day modules in `ts-node`.
+
+Usage:
+
+```
+usage: ./run.sh <day> [|test]
+```
+
+Example:
+
+```
+./run.sh 01
+```
+
+Example of running with the sample:
+
+```
+./run.sh 01 test
+```
+
+If the day has multiple samples, they can be launched by inputting their number as the third argument.
+
+Example for Day 08, which has 2 samples:
+
+```
+./run.sh 01 test 2
+```
+
+To run the test suite:
+
+```
+./test.sh
+```
+
+## Progress
+
+| Day  | Part 1 | Part 2 |
+|------|--------|--------|
+|  1   |   ✅   |   ✅   |
+|  2   |   ✅   |   ✅   |
+|  3   |   ✅   |   ✅   |
+|  4   |   ✅   |   ✅   |
+|  5   |   ✅   |   ✅   |
+|  6   |   ✅   |   ✅   |
+|  7   |   ✅   |   ✅   |
+|  8   |   ✅   |   ✅   |
+|  9   |   ✅   |   ✅   |
+|  10  |   ✅   |   ✅   |
+|  11  |   ✅   |   ✅   |
+|  12  |   ✅   |   ✅   |
+|  13  |   ✅   |   ✅   |
+|  14  |   ✅   |   ✅   |
+|  15  |        |        |
+|  16  |        |        |
+|  17  |        |        |
+|  18  |        |        |
+|  19  |        |        |
+|  20  |        |        |
+|  21  |        |        |
+|  22  |        |        |
+|  23  |        |        |
+|  24  |        |        |
+|  25  |        |        |
 
 ## Notes
 
@@ -36,7 +104,7 @@ Hopefully, this explanation makes sense! It’s interesting to reflect on this a
 (I could come back and take another swing at it, but for now, putting this note up.)
 
 ### Day 14
-I initially started Day 14 with a linear approach, storing all polymer letters. I realized by part 2 that this solution would not hold up at all for large polymers. The polymer grows exponentially each step, so I needed to look into a way to get the memory usage down to something more manageable.
+I initially started Day 14 with a linear approach, storing all polymer letters. I realized by Part 2 that this solution would not hold up at all for large polymers. The polymer grows exponentially each step, so I needed to look into a way to get the memory usage down to something more manageable.
 
 Since the problem statement doesn't explicitly state that the order of the polymer matters (just the letter counts matter), I realized that I can store the counts of each pair into something like a map data structure. Because the order is no longer maintained, this makes it a bit harder to verify that the algorithm is correct, but I should be good as long as I can at least verify manually that the letters produced is correct for the first two steps, then check the counts after the 10th step as well.
 
