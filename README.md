@@ -10,6 +10,12 @@ The solutions in this repo contain **spoilers**, so proceed at your own risk.
 
 ## Instructions
 
+First, run the following to install dependencies:
+
+```sh
+npm install
+```
+
 To run, use the `run.sh` script provided in the repo, which launches any of the day modules in `ts-node`.
 
 Usage:
